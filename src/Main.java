@@ -11,7 +11,8 @@ public class Main {
     public static void main(String [ ] args)
     {
 
-        System.out.println(Problem1.Solve());
+//        System.out.println("Solution to Problem 1 is " + Problem1.Solve());
+//        System.out.println("Solution to Problem 2 is " + Problem2.Solve());
 
     }
 }
