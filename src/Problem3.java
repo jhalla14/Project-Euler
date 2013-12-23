@@ -13,7 +13,7 @@ import java.util.Set;
 public class Problem3 {
 
     private static int TRAINING_NUMBER = 13195;
-    private static long TESTING_NUMBER = 600851475143l;
+    private static Long TESTING_NUMBER = 600851475143l;
 
     public static Double solve(){
         Double answer = 0.0;
@@ -45,7 +45,7 @@ public class Problem3 {
         return answer;
     }
 
-    private static boolean isPrime(long n) {
+    private static boolean isPrime(Long n) {
         for(int i=2;i<n;i++) {
             if(n%i==0)
                 return false;
@@ -53,8 +53,9 @@ public class Problem3 {
         return true;
     }
 
-    private static ArrayList<Long> generateMultiples(long num){
+    private static ArrayList<Long> generateMultiples(Long num){
         ArrayList<Long> list = new ArrayList<Long>();
+
 
         ArrayList<Long> smallerNumbers = smallerNumbers(num);
         for (Long number: smallerNumbers){
@@ -67,10 +68,10 @@ public class Problem3 {
         return list;
     }
 
-    private static ArrayList<Long> smallerNumbers(long num){
+    private static ArrayList<Long> smallerNumbers(Long num){
         ArrayList<Long> list = new ArrayList<Long>();
 
-        for (long i=num; i>1; i--){
+        for (Long i=num; i>1; i--){
             list.add(i);
         }
 
