@@ -14,7 +14,7 @@ public class Problem2 {
 
     private static Double FOUR_MILLION = 4000000.00;
 
-    public static Double Solve(){
+    public static Double solve(){
         Double answer = 0.0;
 
        int fib = 0;

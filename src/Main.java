@@ -11,9 +11,10 @@ public class Main {
     public static void main(String [ ] args)
     {
 
-//        System.out.println("Solution to Problem 1 is " + Problem1.Solve());
-//        System.out.println("Solution to Problem 2 is " + Problem2.Solve());
-          Problem3.solve();
+//        System.out.println("Solution to Problem 1 is " + Problem1.solve());
+//        System.out.println("Solution to Problem 2 is " + Problem2.solve());
+//        System.out.println("Solution to Problem 3 is " + Problem3.solve());
+
 //        System.out.println("Solution to Problem 5 is " + Problem5.solve());
 
     }

@@ -15,7 +15,7 @@ public class Problem1 {
 
 
 
-    public static Double Solve(){
+    public static Double solve(){
         Double answer = 0.0;
         for (int i=0;i<1000;i++){
             if ((i %3 == 0) || (i%5 == 0)){
