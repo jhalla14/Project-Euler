@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Joshua Hall
@@ -11,16 +13,46 @@ Find the largest palindrome made from the product of two 3-digit numbers.
  */
 public class Problem4 {
 
-
+    private final static Integer SMALLEST_THREE_DIGIT_INTEGER = 100;
+    private final static Integer LARGEST_THREE_DIGIT_INTEGER = 999;
 
     public static Double solve(){
 
-        System.out.println(isPalindrome(90119));
+        ArrayList<Integer> numbers = new ArrayList<Integer>();
+
+        for (int i=SMALLEST_THREE_DIGIT_INTEGER; i<=LARGEST_THREE_DIGIT_INTEGER;i++){
+            numbers.add(i);
+        }
+
+//        System.out.println(numbers);
+
+        int maxPalindrome = 0;
+        for (int i=0;i<=numbers.size()-1;i++){
+            for (int j=1;j<=numbers.size()-1;j++){
+//                System.out.println("i: " + numbers.get(i));
+//                System.out.println("j: " + numbers.get(j));
+               int product = numbers.get(i) * numbers.get(j);
+//               System.out.println(isPalindrome(product));
+               if (isPalindrome(product) && product > maxPalindrome){
+                   maxPalindrome = product;
+               }
+            }
+        }
+
+        System.out.println(maxPalindrome);
+
+
+//        System.out.println(isPalindrome(90119));
 
         return 0.0;
     }
 
     private static boolean isPalindrome(Integer number){
+
+        if (number == null){
+            System.err.println("Parameter is null");
+            return false;
+        }
 
         boolean palindrome = false;
         String stringNumber = number.toString();
@@ -49,20 +81,9 @@ public class Problem4 {
                 }
             }
 
-
-            for (int i=0; i<numberArray.length;i++){
-                System.out.println(numberArray[i]);
-
-            }
-
-            System.out.println(numberArray);
         } else {
             System.err.println("Array is null");
         }
-
-
-
-
 
         return palindrome;
     }
