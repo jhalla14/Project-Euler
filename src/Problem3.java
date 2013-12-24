@@ -13,68 +13,30 @@ import java.util.Set;
 public class Problem3 {
 
     private static int TRAINING_NUMBER = 13195;
-    private static Long TESTING_NUMBER = 600851475143l;
+    private static long TESTING_NUMBER = 600851475143l;
 
-    public static Double solve(){
-        Double answer = 0.0;
+    public static int solve(){
 
-        ArrayList<Long> multiples = generateMultiples(TESTING_NUMBER);
-        System.out.println(multiples);
 
-        Set<Long> primeNumbersList = new HashSet<Long>();
-        for (Long multiple : multiples){
-            if (isPrime(multiple)){
-                primeNumbersList.add(multiple);
+        return generateMultiples(TESTING_NUMBER);
+    }
+
+
+    private static int generateMultiples(Long num){
+
+        int divisor;
+
+        //try dividing by every number starting at 2 because everything is divisible by 1
+        for (divisor = 2; divisor <= num; divisor++) {
+            //if it is evenly divisible
+            if (num % divisor == 0) {
+                //divide the current number by that factor (to break it down)
+                //and keep finding more factors
+                num = num / divisor;
             }
         }
 
-        System.out.println(primeNumbersList);
-
-        if (!primeNumbersList.isEmpty()){
-            Integer max = 0;
-            Iterator i = primeNumbersList.iterator();
-            while(i.hasNext()){
-                Integer currentInt = (Integer)i.next();
-                if (currentInt > max){
-                   max = currentInt;
-                }
-            }
-            System.out.println(max);
-            answer = max.doubleValue();
-        }
-        return answer;
+        return divisor;
     }
 
-    private static boolean isPrime(Long n) {
-        for(int i=2;i<n;i++) {
-            if(n%i==0)
-                return false;
-        }
-        return true;
-    }
-
-    private static ArrayList<Long> generateMultiples(Long num){
-        ArrayList<Long> list = new ArrayList<Long>();
-
-
-        ArrayList<Long> smallerNumbers = smallerNumbers(num);
-        for (Long number: smallerNumbers){
-            if (num % number == 0){
-                list.add(number);
-            }
-        }
-
-
-        return list;
-    }
-
-    private static ArrayList<Long> smallerNumbers(Long num){
-        ArrayList<Long> list = new ArrayList<Long>();
-
-        for (Long i=num; i>1; i--){
-            list.add(i);
-        }
-
-        return list;
-    }
 }
