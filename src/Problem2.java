@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Joshua Hall
@@ -12,23 +14,29 @@
  */
 public class Problem2 {
 
-    private static Double FOUR_MILLION = 4000000.00;
+    private final static Integer FOUR_MILLION = 4000000;
+    private final static Integer ONE = 1;
+    private final static Integer TWO = 2;
 
-    public static Double solve(){
-        Double answer = 0.0;
+    public static Integer solve(){
+        ArrayList<Integer> evenFibonacciTerms = new ArrayList<Integer>();
 
-       int fib = 0;
-       int fib1 = 1;
-       int fib2 = 2;
+        int numberOfTerms = 0;
+        int fib = 0;
 
+        int fib1 = ONE;
+        numberOfTerms++;
+
+        int fib2 = TWO;
+        numberOfTerms++;
+        evenFibonacciTerms.add(fib2);       //add even number
 
         while(fib < FOUR_MILLION){
             //add the fibonacci numbers from the previous two
             fib = fib1 + fib2;
             if(fib % 2 == 0){
-                answer += fib;
+                evenFibonacciTerms.add(fib);
             }
-//            System.out.println(fib);
 
             //save 2nd term as the new 1st term
             fib1 = fib2;
@@ -36,8 +44,14 @@ public class Problem2 {
             //the 2nd term is now the older fibonacci number
             fib2 = fib;
 
+            numberOfTerms ++;
         }
 
-        return answer;
+        Integer sumOfEvenFibonacciTerms = 0;
+        for (Integer i : evenFibonacciTerms){
+           sumOfEvenFibonacciTerms += i;
+        }
+
+        return sumOfEvenFibonacciTerms;
     }
 }
