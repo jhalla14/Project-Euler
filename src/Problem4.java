@@ -16,35 +16,24 @@ public class Problem4 {
     private final static Integer SMALLEST_THREE_DIGIT_INTEGER = 100;
     private final static Integer LARGEST_THREE_DIGIT_INTEGER = 999;
 
-    public static Double solve(){
+    public static Integer solve(){
 
         ArrayList<Integer> numbers = new ArrayList<Integer>();
 
         for (int i=SMALLEST_THREE_DIGIT_INTEGER; i<=LARGEST_THREE_DIGIT_INTEGER;i++){
             numbers.add(i);
         }
-
-//        System.out.println(numbers);
-
         int maxPalindrome = 0;
         for (int i=0;i<=numbers.size()-1;i++){
             for (int j=1;j<=numbers.size()-1;j++){
-//                System.out.println("i: " + numbers.get(i));
-//                System.out.println("j: " + numbers.get(j));
                int product = numbers.get(i) * numbers.get(j);
-//               System.out.println(isPalindrome(product));
                if (isPalindrome(product) && product > maxPalindrome){
                    maxPalindrome = product;
                }
             }
         }
 
-        System.out.println(maxPalindrome);
-
-
-//        System.out.println(isPalindrome(90119));
-
-        return 0.0;
+        return maxPalindrome;
     }
 
     private static boolean isPalindrome(Integer number){
