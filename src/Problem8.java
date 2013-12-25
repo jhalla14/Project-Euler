@@ -60,7 +60,18 @@ public class Problem8 {
 
         Set<Integer[]> productSet = new HashSet<Integer[]>();
 
+        String bigStringInteger = BIG_INTEGER.toString();
 
+        char[] bigStringArray = bigStringInteger.toCharArray();
+
+        for (int i=0; i<=bigStringArray.length-1; i++){
+            Integer number = Character.getNumericValue(bigStringArray[i]);
+
+            if (i % 5 == 0){
+                Integer[] array = new Integer[5];
+
+            }
+        }
 
 
 
