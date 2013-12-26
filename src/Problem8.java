@@ -1,5 +1,6 @@
 import java.math.BigInteger;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -67,13 +68,48 @@ public class Problem8 {
         for (int i=0; i<=bigStringArray.length-1; i++){
             Integer number = Character.getNumericValue(bigStringArray[i]);
 
-            if (i % 5 == 0){
+            if (i % 5 == 0 ){
                 Integer[] array = new Integer[5];
 
+                if (i <= 5){
+                    array[0] = Character.getNumericValue(bigStringArray[0]);
+                    array[1] = Character.getNumericValue(bigStringArray[1]);
+                    array[2] = Character.getNumericValue(bigStringArray[2]);
+                    array[3] = Character.getNumericValue(bigStringArray[3]);
+                    array[4] = Character.getNumericValue(bigStringArray[4]);
+                } else {
+
+                array[0] = Character.getNumericValue(bigStringArray[i-4]);
+                array[1] = Character.getNumericValue(bigStringArray[i-3]);
+                array[2] = Character.getNumericValue(bigStringArray[i-2]);
+                array[3] = Character.getNumericValue(bigStringArray[i-1]);
+                array[4] = Character.getNumericValue(bigStringArray[i]);
+                }
+                productSet.add(array);
             }
+
         }
 
+        Integer maxProduct = 0;
+        Integer product = 0;
+        Iterator i = productSet.iterator();
+        while (i.hasNext()){
+            Integer[] set = (Integer[])i.next();
+            product = set[0] * set[1] * set[2] * set[3] * set[4];
+            System.out.println("product: " + product);
 
+            if (product >= maxProduct){
+                maxProduct = product;
+            }
+//
+//            for (int j=0; j<=set.length-1;j++){
+//
+//                System.out.println(set[j]);
+//            }
+        }
+
+        System.out.println(maxProduct);
+        System.out.println(productSet.size());
 
         return 0;
     }
