@@ -32,8 +32,6 @@ import java.util.Set;
  */
 public class Problem8 {
 
-    private final static Integer FIVE = 5;
-    private final static Integer NUMBER_OF_DIGITS = 1000;
     private final static BigInteger BIG_INTEGER = new BigInteger(
             "73167176531330624919225119674426574742355349194934" +
             "96983520312774506326239578318016984801869478851843" +
@@ -65,53 +63,32 @@ public class Problem8 {
 
         char[] bigStringArray = bigStringInteger.toCharArray();
 
-        for (int i=0; i<=bigStringArray.length-1; i++){
+        for (int i=0; i<=bigStringArray.length-5; i++){
             Integer number = Character.getNumericValue(bigStringArray[i]);
 
-            if (i % 5 == 0 ){
-                Integer[] array = new Integer[5];
+            Integer[] array = new Integer[5];
 
-                if (i <= 5){
-                    array[0] = Character.getNumericValue(bigStringArray[0]);
-                    array[1] = Character.getNumericValue(bigStringArray[1]);
-                    array[2] = Character.getNumericValue(bigStringArray[2]);
-                    array[3] = Character.getNumericValue(bigStringArray[3]);
-                    array[4] = Character.getNumericValue(bigStringArray[4]);
-                } else {
-
-                array[0] = Character.getNumericValue(bigStringArray[i-4]);
-                array[1] = Character.getNumericValue(bigStringArray[i-3]);
-                array[2] = Character.getNumericValue(bigStringArray[i-2]);
-                array[3] = Character.getNumericValue(bigStringArray[i-1]);
-                array[4] = Character.getNumericValue(bigStringArray[i]);
-                }
-                productSet.add(array);
+            for (int j=0; j<=4; j++){
+                array[j] = Character.getNumericValue(bigStringArray[i+j]);
             }
-
+            productSet.add(array);
         }
 
+
+        //loop and find the highest product among all the sets
         Integer maxProduct = 0;
-        Integer product = 0;
+        Integer product;
         Iterator i = productSet.iterator();
         while (i.hasNext()){
             Integer[] set = (Integer[])i.next();
             product = set[0] * set[1] * set[2] * set[3] * set[4];
-            System.out.println("product: " + product);
 
             if (product >= maxProduct){
                 maxProduct = product;
             }
-//
-//            for (int j=0; j<=set.length-1;j++){
-//
-//                System.out.println(set[j]);
-//            }
         }
 
-        System.out.println(maxProduct);
-        System.out.println(productSet.size());
-
-        return 0;
+        return maxProduct;
     }
 
 }
