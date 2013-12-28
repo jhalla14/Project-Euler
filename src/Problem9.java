@@ -14,18 +14,25 @@ public class Problem9 {
     public static Integer solve(){
 
         Integer product = 0;
+        Boolean found = false;
+
 
         for (int m=2; m<=Integer.MAX_VALUE; m++){
+
             for (int n=1; n<m; n++){
-                Integer a = (m*m) + (n*n);
+                Integer a = (m*m) - (n*n);
                 Integer b = (2*m*n);
                 Integer c = (m*m) + (n*n);
 
                 if (a+b+c == 1000){
                     product = a*b*c;
+                    found = true;
+                    break;
                 }
             }
+            if (found) break;
         }
+
 
         System.out.println(product);
 
