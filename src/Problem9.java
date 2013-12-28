@@ -16,7 +16,6 @@ public class Problem9 {
         Integer product = 0;
         Boolean found = false;
 
-
         for (int m=2; m<=Integer.MAX_VALUE; m++){
 
             for (int n=1; n<m; n++){
@@ -33,10 +32,6 @@ public class Problem9 {
             if (found) break;
         }
 
-
-        System.out.println(product);
-
-
-        return 0;
+        return product;
     }
 }

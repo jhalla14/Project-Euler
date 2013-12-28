@@ -19,8 +19,6 @@ public class Problem7 {
         Integer primeCounter = 0;
         Integer number = 0;
         while(primeCounter <= LIMIT){
-            number++;
-
             //check if number is a multiple of 2
             if (!(number % 2 == 0)){
                 //if not, then check the odd numbers
@@ -31,7 +29,7 @@ public class Problem7 {
                 }
             }
 
-
+            number++;
         }
 
 
