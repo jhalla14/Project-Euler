@@ -22,28 +22,29 @@ public class Problem7 {
 
         Set<Integer[]> candidates = new HashSet<Integer[]>();
 
-        Integer number =3;
-        List<Integer> primes = new ArrayList<Integer>();
+        Integer number = 3;
+        Set<Integer> primes = new HashSet<Integer>();
+        Set<Integer> composites = new HashSet<Integer>();
         while(primes.size() <= LIMIT) {
 
             Integer[] list = generateListOfIntegersBetweenTwoAndNumber(number);
 
-            Set<Integer> composites = new HashSet<Integer>();
-            for (int i = 0; i <= list.length - 1; i++) {
-                System.out.print(list[i] + " ");
+            for (int i = 0; i <= Math.sqrt(number); i++) {
+//                System.out.print(list[i] + " ");
 
                 Integer increment = list[i];
 
                 //cross out every index whose value is evenly divisible by that number (in increments of that number)
-                for (int j = increment + increment; j <= number; j += increment) {
+                for (int j = increment * increment; j <= Math.sqrt(LIMIT); j += increment) {
                     if (j % increment == 0) {
 //                     System.out.println(j + " " + increment);
                         composites.add(j);
+
                     }
                 }
 
             }
-            System.out.println(composites);
+//            System.out.println(composites);
 
             for (int j = 0; j <= list.length - 1; j++) {
                 if (!composites.contains(list[j])) {
@@ -53,11 +54,13 @@ public class Problem7 {
 
             System.out.println(primes);
             number++;
+
         }
 
+        Integer max = Collections.max(primes);
 
 
-//        System.out.println(answer);
+        System.out.println(max);
         return 0;
     }
 
