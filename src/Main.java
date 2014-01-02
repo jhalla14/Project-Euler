@@ -17,10 +17,11 @@ public class Main {
 //        System.out.println("Solution to Problem 4 is " + Problem4.solve());
 //        System.out.println("Solution to Problem 5 is " + Problem5.solve());
 //          System.out.println("Solution to Problem 6 is " + Problem6.solve());
-//        System.out.println("Solution to Problem 7 is " + Problem7.solve());    //still need to fine rigth answer
+//        System.out.println("Solution to Problem 7 is " + Problem7.solve());    //still need to fine right answer
+        Problem7.solve();
 //          System.out.println("Solution to Problem 8 is " + Problem8.solve());
 //        System.out.println("Solution to Problem 9 is " + Problem9.solve());
-          Problem10.solve();
+//          Problem10.solve();
 
     }
 }
