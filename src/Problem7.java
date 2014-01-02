@@ -12,78 +12,39 @@ import java.util.*;
 public class Problem7 {
 
     private final static Integer LIMIT = 10001;
-    private final static Integer TWO = 2;
 
     public static Integer solve(){
-
-        Integer answer  = 0;
+        Integer answer;
         Integer primeCounter = 0;
-        Integer potentialPrimeCandidate = 3;
+        Integer potentialPrimeCandidate = 0;
 
-        Set<Integer[]> candidates = new HashSet<Integer[]>();
-
-        Integer number = 3;
-        Set<Integer> primes = new HashSet<Integer>();
-        Set<Integer> composites = new HashSet<Integer>();
-        while(primes.size() <= LIMIT) {
-
-            Integer[] list = generateListOfIntegersBetweenTwoAndNumber(number);
-
-            for (int i = 0; i <= Math.sqrt(number); i++) {
-//                System.out.print(list[i] + " ");
-
-                Integer increment = list[i];
-
-                //cross out every index whose value is evenly divisible by that number (in increments of that number)
-                for (int j = increment * increment; j <= Math.sqrt(LIMIT); j += increment) {
-                    if (j % increment == 0) {
-//                     System.out.println(j + " " + increment);
-                        composites.add(j);
-
-                    }
-                }
-
+        List<Integer> primes =  new ArrayList<Integer>();
+        while(primeCounter < LIMIT){
+            if (isPrime(potentialPrimeCandidate)){
+                primes.add(potentialPrimeCandidate);
+                primeCounter++;
             }
-//            System.out.println(composites);
-
-            for (int j = 0; j <= list.length - 1; j++) {
-                if (!composites.contains(list[j])) {
-                    primes.add(list[j]);
-                }
-            }
-
-            System.out.println(primes);
-            number++;
-
+            potentialPrimeCandidate++;
         }
 
-        Integer max = Collections.max(primes);
-
-
-        System.out.println(max);
-        return 0;
+        answer = Collections.max(primes);
+        return answer;
     }
 
-    private static Integer[] generateListOfIntegersBetweenTwoAndNumber(Integer number){
-        Integer sizeOfList = number - 1;  //starting from 2 up to AND including number
-        Integer[] list = null;
+    private static boolean isPrime(Integer number){
 
-        if (number == null){
-            System.err.println("Number cannot be null");
+        if (number < 2){
+            return false;
         }
 
-        //must be greater than 2 because 2 is the first prime number
-        if (number > 2){
-            list = new Integer[sizeOfList];
+        Integer root = (int) Math.sqrt(number);
 
-            //populate list with values from 2 until that number
-            for (int i=0; i<=list.length-1; i++){
-                list[i] = i+2;
+        for (int i=2; i<=root; i++){
+            if (number % i == 0){
+                return false;
             }
-        } else {
-            System.err.println("Number must be greater than 2");
         }
 
-        return list;
+        return true;
     }
 }
