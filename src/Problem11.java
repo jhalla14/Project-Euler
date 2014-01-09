@@ -1,3 +1,7 @@
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
 /**
  * User: Joshua Hall
  * Date: 1/3/14
@@ -54,6 +58,15 @@ public class Problem11 {
 
     public static Integer solve(){
         Integer answer = 0;
+
+        Set<Integer> rightSets = new TreeSet<Integer>();
+
+        for (int i=0; i<20; i++){
+            System.out.println("\n");
+            for (int j=0; j<20; j++){
+                System.out.print(GRID[i][j] + " ");
+            }
+        }
 
         return answer;
     }
