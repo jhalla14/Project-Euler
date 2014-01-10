@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
@@ -59,14 +60,65 @@ public class Problem11 {
     public static Integer solve(){
         Integer answer = 0;
 
-        Set<Integer> rightSets = new TreeSet<Integer>();
-
+        ArrayList<ArrayList<Integer>> rightSets = new ArrayList<ArrayList<Integer>>();
+        //create the right direction sets
         for (int i=0; i<20; i++){
-            System.out.println("\n");
+            ArrayList<Integer> rightSet = null;
             for (int j=0; j<20; j++){
-                System.out.print(GRID[i][j] + " ");
+                 if (j<16){  //get rid of the blank sets at boundary conditions
+                     rightSet = new ArrayList<Integer>();
+                 }
+                for (int counter=0; counter<4; counter++){
+                    //boundary condition
+                    if (j<16){
+                          rightSet.add(GRID[i][j + counter]);
+                    }
+                }
+                rightSets.add(rightSet);
             }
         }
+
+        System.out.println(rightSets);
+
+        ArrayList<ArrayList<Integer>> leftSets = new ArrayList<ArrayList<Integer>>();
+        //create the left direction sets
+        for (int i=19; i>=0; i--){
+            ArrayList<Integer> leftSet = null;
+            for (int j=19; j>=0; j--){
+                if (j>=3){  //get rid of the blank sets at boundary conditions
+                    leftSet = new ArrayList<Integer>();
+                }
+                for (int counter=0; counter<4; counter++){
+                    //boundary condition
+                    if (j>=3){
+                        leftSet.add(GRID[i][j - counter]);
+                    }
+                }
+                leftSets.add(leftSet);
+            }
+        }
+
+        System.out.println(leftSets);
+
+        ArrayList<ArrayList<Integer>> upSets = new ArrayList<ArrayList<Integer>>();
+        //create the up direction sets
+        for (int i=19; i>=0; i--){
+            ArrayList<Integer> upSet = null;
+            for (int j=19; j>=0; j--){
+                if (j>=3){  //get rid of the blank sets at boundary conditions
+                    upSet = new ArrayList<Integer>();
+                }
+                for (int counter=0; counter<4; counter++){
+                    //boundary condition
+                    if (j>=3){
+                        upSet.add(GRID[i - counter][j]);
+                    }
+                }
+                upSets.add(upSet);
+            }
+        }
+
+        System.out.println(upSets);
 
         return answer;
     }
