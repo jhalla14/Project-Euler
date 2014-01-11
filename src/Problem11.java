@@ -78,7 +78,7 @@ public class Problem11 {
             }
         }
 
-        System.out.println(rightSets);
+//        System.out.println(rightSets);
 
         ArrayList<ArrayList<Integer>> leftSets = new ArrayList<ArrayList<Integer>>();
         //create the left direction sets
@@ -91,34 +91,54 @@ public class Problem11 {
                 for (int counter=0; counter<4; counter++){
                     //boundary condition
                     if (j>=3){
-                        leftSet.add(GRID[i][j - counter]);
+                        leftSet.add(GRID[i + counter][j]);
                     }
                 }
                 leftSets.add(leftSet);
             }
         }
 
-        System.out.println(leftSets);
+//        System.out.println(leftSets);
 
-        ArrayList<ArrayList<Integer>> upSets = new ArrayList<ArrayList<Integer>>();
-        //create the up direction sets
-        for (int i=19; i>=0; i--){
-            ArrayList<Integer> upSet = null;
-            for (int j=19; j>=0; j--){
-                if (j>=3){  //get rid of the blank sets at boundary conditions
-                    upSet = new ArrayList<Integer>();
+
+        ArrayList<ArrayList<Integer>> downSets = new ArrayList<ArrayList<Integer>>();
+        //create the right direction sets
+        for (int i=0; i<20; i++){
+            ArrayList<Integer> downSet = null;
+            for (int j=0; j<20; j++){
+                if (i<16){  //get rid of the blank sets at boundary conditions
+                    downSet = new ArrayList<Integer>();
                 }
                 for (int counter=0; counter<4; counter++){
                     //boundary condition
-                    if (j>=3){
-                        upSet.add(GRID[i - counter][j]);
+                    if (i<16){
+                        downSet.add(GRID[i][j + counter]);
                     }
                 }
-                upSets.add(upSet);
+                downSets.add(downSet);
             }
         }
 
-        System.out.println(upSets);
+        System.out.println(downSets);
+//        ArrayList<ArrayList<Integer>> upSets = new ArrayList<ArrayList<Integer>>();
+//        //create the up direction sets
+//        for (int i=19; i>=0; i--){
+//            ArrayList<Integer> upSet = null;
+//            for (int j=19; j>=0; j--){
+//                if (j>=3){  //get rid of the blank sets at boundary conditions
+//                    upSet = new ArrayList<Integer>();
+//                }
+//                for (int counter=0; counter<4; counter++){
+//                    //boundary condition
+//                    if (j>=3){
+//                        upSet.add(GRID[i - counter][j]);
+//                    }
+//                }
+//                upSets.add(upSet);
+//            }
+//        }
+//
+//        System.out.println(upSets);
 
         return answer;
     }
