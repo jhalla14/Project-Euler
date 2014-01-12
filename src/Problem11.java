@@ -65,12 +65,12 @@ public class Problem11 {
         for (int i=0; i<20; i++){
             ArrayList<Integer> rightSet = null;
             for (int j=0; j<20; j++){
-                 if (j<16){  //get rid of the blank sets at boundary conditions
+                 if (j<=16){  //get rid of the blank sets at boundary conditions
                      rightSet = new ArrayList<Integer>();
                  }
                 for (int counter=0; counter<4; counter++){
                     //boundary condition
-                    if (j<16){
+                    if (j<=16){
                           rightSet.add(GRID[i][j + counter]);
                     }
                 }
@@ -91,18 +91,18 @@ public class Problem11 {
                 for (int counter=0; counter<4; counter++){
                     //boundary condition
                     if (j>=3){
-                        leftSet.add(GRID[i + counter][j]);
+                        leftSet.add(GRID[i][j - counter]);
                     }
                 }
                 leftSets.add(leftSet);
             }
         }
 
-//        System.out.println(leftSets);
+        System.out.println(leftSets);
 
 
         ArrayList<ArrayList<Integer>> downSets = new ArrayList<ArrayList<Integer>>();
-        //create the right direction sets
+        //create the down direction sets
         for (int i=0; i<20; i++){
             ArrayList<Integer> downSet = null;
             for (int j=0; j<20; j++){
@@ -112,7 +112,7 @@ public class Problem11 {
                 for (int counter=0; counter<4; counter++){
                     //boundary condition
                     if (i<16){
-                        downSet.add(GRID[i][j + counter]);
+                        downSet.add(GRID[i + counter][j]);
                     }
                 }
                 downSets.add(downSet);
