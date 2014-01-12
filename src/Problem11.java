@@ -98,7 +98,7 @@ public class Problem11 {
             }
         }
 
-        System.out.println(leftSets);
+//        System.out.println(leftSets);
 
 
         ArrayList<ArrayList<Integer>> downSets = new ArrayList<ArrayList<Integer>>();
@@ -106,12 +106,12 @@ public class Problem11 {
         for (int i=0; i<20; i++){
             ArrayList<Integer> downSet = null;
             for (int j=0; j<20; j++){
-                if (i<16){  //get rid of the blank sets at boundary conditions
+                if (i<=16){  //get rid of the blank sets at boundary conditions
                     downSet = new ArrayList<Integer>();
                 }
                 for (int counter=0; counter<4; counter++){
                     //boundary condition
-                    if (i<16){
+                    if (i<=16){
                         downSet.add(GRID[i + counter][j]);
                     }
                 }
