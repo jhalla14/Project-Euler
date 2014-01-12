@@ -120,25 +120,26 @@ public class Problem11 {
         }
 
         System.out.println(downSets);
-//        ArrayList<ArrayList<Integer>> upSets = new ArrayList<ArrayList<Integer>>();
-//        //create the up direction sets
-//        for (int i=19; i>=0; i--){
-//            ArrayList<Integer> upSet = null;
-//            for (int j=19; j>=0; j--){
-//                if (j>=3){  //get rid of the blank sets at boundary conditions
-//                    upSet = new ArrayList<Integer>();
-//                }
-//                for (int counter=0; counter<4; counter++){
-//                    //boundary condition
-//                    if (j>=3){
-//                        upSet.add(GRID[i - counter][j]);
-//                    }
-//                }
-//                upSets.add(upSet);
-//            }
-//        }
-//
-//        System.out.println(upSets);
+        ArrayList<ArrayList<Integer>> upSets = new ArrayList<ArrayList<Integer>>();
+        //create the up direction sets
+        for (int i=19; i>=0; i--){
+            ArrayList<Integer> upSet = null;
+            for (int j=19; j>=0; j--){
+                if (j>=3){  //get rid of the blank sets at boundary conditions
+                    upSet = new ArrayList<Integer>();
+                }
+                for (int counter=0; counter<4; counter++){
+                    //boundary condition
+                    if (j>=3){
+                        System.out.println(i + " " + j);
+                        upSet.add(GRID[i - counter][j]);
+                    }
+                }
+                upSets.add(upSet);
+            }
+        }
+
+        System.out.println(upSets);
 
         return answer;
     }
