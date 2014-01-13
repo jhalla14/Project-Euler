@@ -141,6 +141,20 @@ public class Problem11 {
 
         System.out.println(upSets);
 
+
+        //diagonal sets
+        for (int i=0; i<20;i++){
+            ArrayList<Integer> diagionalSet = null;
+            for (int j=0;i<20;j++){
+                if (i>3 && j>3){
+                    diagionalSet = new ArrayList<Integer>();
+                    for (int counter=0; counter<4;counter++){
+//                        diagionalSet.add(GRID[])
+                    }
+                }
+            }
+        }
+
         return answer;
     }
 }
