@@ -149,7 +149,7 @@ public class Problem11 {
                 if (i>3 && j>3){
                     diagionalSet = new ArrayList<Integer>();
                     for (int counter=0; counter<4;counter++){
-//                        diagionalSet.add(GRID[])
+                        diagionalSet.add(GRID[i][j+counter]);
                     }
                 }
             }
