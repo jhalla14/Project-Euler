@@ -150,6 +150,7 @@ public class Problem11 {
                     diagionalSet = new ArrayList<Integer>();
                     for (int counter=0; counter<4;counter++){
                         diagionalSet.add(GRID[i][j+counter]);
+                        diagionalSet.add(GRID[i+counter][j]);
                     }
                 }
             }
