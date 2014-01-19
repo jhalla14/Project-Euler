@@ -80,27 +80,6 @@ public class Problem11 {
 
         System.out.println(rightSets);
 
-//        ArrayList<ArrayList<Integer>> leftSets = new ArrayList<ArrayList<Integer>>();
-//        //create the left direction sets
-//        for (int i=19; i>=0; i--){
-//            ArrayList<Integer> leftSet = null;
-//            for (int j=19; j>=0; j--){
-//                if (j>=3){  //get rid of the blank sets at boundary conditions
-//                    leftSet = new ArrayList<Integer>();
-//                }
-//                for (int counter=0; counter<4; counter++){
-//                    //boundary condition
-//                    if (j>=3){
-//                        leftSet.add(GRID[i][j - counter]);
-//                    }
-//                }
-//                leftSets.add(leftSet);
-//            }
-//        }
-//
-//        System.out.println(leftSets);
-
-
         ArrayList<ArrayList<Integer>> downSets = new ArrayList<ArrayList<Integer>>();
         //create the down direction sets
         for (int i=0; i<20; i++){
@@ -120,27 +99,6 @@ public class Problem11 {
         }
 
         System.out.println(downSets);
-
-//        ArrayList<ArrayList<Integer>> upSets = new ArrayList<ArrayList<Integer>>();
-//        //create the up direction sets
-//        for (int i=19; i>=0; i--){
-//            ArrayList<Integer> upSet = null;
-//            for (int j=19; j>=0; j--){
-//                if (j>=3){  //get rid of the blank sets at boundary conditions
-//                    upSet = new ArrayList<Integer>();
-//                }
-//                for (int counter=0; counter<4; counter++){
-//                    //boundary condition
-//                    if (j>=3){
-//                        System.out.println(i + " " + j);
-//                        upSet.add(GRID[i - counter][j]);
-//                    }
-//                }
-//                upSets.add(upSet);
-//            }
-//        }
-//
-//        System.out.println(upSets);
 
         ArrayList<ArrayList<Integer>> diagonalSets = new ArrayList<ArrayList<Integer>>();
         //diagonal sets
