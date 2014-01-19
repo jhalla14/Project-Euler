@@ -66,26 +66,15 @@ public class Problem11 {
 
         //create the right direction sets
         for (int i=0; i<20; i++){
-            ArrayList<Integer> rightSet = null;
-            ArrayList<Integer> downSet = null;
-            ArrayList<Integer> diagonalSet = null;
             for (int j=0; j<20; j++){
-                if (j<=16){  //get rid of the blank sets at boundary conditions
-                     rightSet = new ArrayList<Integer>();
-                 }
-                if (i <= 16){
-                    downSet = new ArrayList<Integer>();
-                }
-                    diagonalSet = new ArrayList<Integer>();
+                ArrayList<Integer> rightSet = new ArrayList<Integer>();
+                ArrayList<Integer> downSet = new ArrayList<Integer>();
+                ArrayList<Integer> diagonalSet = new ArrayList<Integer>();
+
                 for (int counter=0; counter<4; counter++){
-                    //boundary condition
-                    if (j<=16){
-                        rightSet.add(GRID[i][j + counter]);
-                    }
-                    if (i <=16){
-                        downSet.add(GRID[i + counter][j]);
-                    }
                     if (i+counter < 20 && j+counter < 20){
+                        rightSet.add(GRID[i][j + counter]);
+                        downSet.add(GRID[i + counter][j]);
                         diagonalSet.add(GRID[i + counter][j + counter]);
                     }
                 }
@@ -105,10 +94,9 @@ public class Problem11 {
             for (int i=0; i<=horizontalSet.size()-1; i++){
                 product *= horizontalSet.get(i);
             }
-            if (product > horizontalSetMax){
+            if (product >= horizontalSetMax){
                 horizontalSetMax = product;
             }
-
         }
         System.out.println(horizontalSetMax);
 
@@ -119,7 +107,7 @@ public class Problem11 {
                 for (int i = 0; i <= verticalSet.size() - 1; i++) {
                     product *= verticalSet.get(i);
                 }
-                if (product > verticalSetMax) {
+                if (product >= verticalSetMax) {
                     verticalSetMax = product;
                 }
             }
@@ -134,7 +122,7 @@ public class Problem11 {
                 for (int i=0; i<=diagonalSet.size()-1; i++){
                     product *= diagonalSet.get(i);
                 }
-                if (product > diagonalSetMax){
+                if (product >= diagonalSetMax){
                     diagonalSetMax = product;
                 }
             }
