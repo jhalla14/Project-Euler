@@ -70,15 +70,13 @@ public class Problem11 {
             ArrayList<Integer> downSet = null;
             ArrayList<Integer> diagonalSet = null;
             for (int j=0; j<20; j++){
-
-                diagonalSet = new ArrayList<Integer>();
                 if (j<=16){  //get rid of the blank sets at boundary conditions
                      rightSet = new ArrayList<Integer>();
-
                  }
                 if (i <= 16){
                     downSet = new ArrayList<Integer>();
                 }
+                    diagonalSet = new ArrayList<Integer>();
                 for (int counter=0; counter<4; counter++){
                     //boundary condition
                     if (j<=16){
@@ -87,7 +85,7 @@ public class Problem11 {
                     if (i <=16){
                         downSet.add(GRID[i + counter][j]);
                     }
-                    if (i+counter < 4 && j+counter < 4){
+                    if (i+counter < 20 && j+counter < 20){
                         diagonalSet.add(GRID[i + counter][j + counter]);
                     }
                 }
