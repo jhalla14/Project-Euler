@@ -61,62 +61,44 @@ public class Problem11 {
         Integer answer = 0;
 
         ArrayList<ArrayList<Integer>> rightSets = new ArrayList<ArrayList<Integer>>();
+        ArrayList<ArrayList<Integer>> downSets = new ArrayList<ArrayList<Integer>>();
+        ArrayList<ArrayList<Integer>> diagonalSets = new ArrayList<ArrayList<Integer>>();
+
         //create the right direction sets
         for (int i=0; i<20; i++){
             ArrayList<Integer> rightSet = null;
-            for (int j=0; j<20; j++){
-                 if (j<=16){  //get rid of the blank sets at boundary conditions
-                     rightSet = new ArrayList<Integer>();
-                 }
-                for (int counter=0; counter<4; counter++){
-                    //boundary condition
-                    if (j<=16){
-                          rightSet.add(GRID[i][j + counter]);
-                    }
-                }
-                rightSets.add(rightSet);
-            }
-        }
-
-        System.out.println(rightSets);
-
-        ArrayList<ArrayList<Integer>> downSets = new ArrayList<ArrayList<Integer>>();
-        //create the down direction sets
-        for (int i=0; i<20; i++){
             ArrayList<Integer> downSet = null;
+            ArrayList<Integer> diagonalSet = null;
             for (int j=0; j<20; j++){
-                if (i<=16){  //get rid of the blank sets at boundary conditions
+
+                diagonalSet = new ArrayList<Integer>();
+                if (j<=16){  //get rid of the blank sets at boundary conditions
+                     rightSet = new ArrayList<Integer>();
+
+                 }
+                if (i <= 16){
                     downSet = new ArrayList<Integer>();
                 }
                 for (int counter=0; counter<4; counter++){
                     //boundary condition
-                    if (i<=16){
+                    if (j<=16){
+                        rightSet.add(GRID[i][j + counter]);
+                    }
+                    if (i <=16){
                         downSet.add(GRID[i + counter][j]);
                     }
-                }
-                downSets.add(downSet);
-            }
-        }
-
-        System.out.println(downSets);
-
-        ArrayList<ArrayList<Integer>> diagonalSets = new ArrayList<ArrayList<Integer>>();
-        //diagonal sets
-        for (int i=0; i<20;i++){
-            ArrayList<Integer> diagionalSet = null;
-            for (int j=0;j<20;j++){
-//                if (i>3 && j>3){
-                    diagionalSet = new ArrayList<Integer>();
-                    for (int counter=0; counter<4;counter++){
-                        if (i+counter < 4 && j+counter < 4){
-                            diagionalSet.add(GRID[i+counter][j+counter]);
-                        }
+                    if (i+counter < 4 && j+counter < 4){
+                        diagonalSet.add(GRID[i + counter][j + counter]);
                     }
-//                }
-                diagonalSets.add(diagionalSet);
+                }
+                rightSets.add(rightSet);
+                downSets.add(downSet);
+                diagonalSets.add(diagonalSet);
             }
         }
 
+        System.out.println(rightSets);
+        System.out.println(downSets);
         System.out.println(diagonalSets);
 
         int horizontalSetMax = 0;
