@@ -21,7 +21,8 @@ public class Main {
 //          System.out.println("Solution to Problem 8 is " + Problem8.solve());
 //        System.out.println("Solution to Problem 9 is " + Problem9.solve());
 //          System.out.println("Solution to Problem 10 is " + Problem10.solve());
-          Problem11.solve();
+//          Problem11.solve();
+        Problem12.solve();
 
     }
 }

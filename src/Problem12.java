@@ -26,6 +26,20 @@ public class Problem12 {
 
     public static Double solve(){
 
+        int divisors = 0;
+        int sum = 0;
+        for (int counter=1; counter<=Integer.MAX_VALUE;counter++){
+            sum += counter;
+            divisors++;
+            if (divisors == 500){
+                System.out.println(sum);
+                break;
+            }
+        }
+
+        System.out.println(divisors);
+        System.out.println(sum);
+
 
         return 0.0;
     }
