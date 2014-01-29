@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Joshua Hall
@@ -28,20 +31,28 @@ public class Problem12 {
 
         int divisors = 0;
         int sum = 0;
-        for (int counter=1; counter<=Integer.MAX_VALUE;counter++){
+        List<Integer> divisorsList = new ArrayList<Integer>();
+
+        for (int counter=1; counter<=6;counter++){
             sum += counter;
-            divisors++;
-            System.out.println(divisors + " " + sum);
-            if (divisors == 500){
-                System.out.println(sum);
-                break;
-            }
+
+
+
+            divisorsList.add(sum);
+
         }
 
-        System.out.println(divisors);
-        System.out.println(sum);
+
+        System.out.println(divisorsList);
 
 
+        generateTriangleNumbers(10);
         return 0.0;
+    }
+
+    private static Integer generateTriangleNumbers(int limit){
+        int triangleNumber;
+        triangleNumber = (limit * (limit+1)) /2;
+        return triangleNumber;
     }
 }
