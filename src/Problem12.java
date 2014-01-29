@@ -33,20 +33,21 @@ public class Problem12 {
         int sum = 0;
         List<Integer> divisorsList = new ArrayList<Integer>();
 
-        for (int counter=1; counter<=6;counter++){
+        for (int counter=1; counter<=Integer.MAX_VALUE;counter++){
             sum += counter;
 
-
-
+            divisors = factor(sum);
+            System.out.println(divisors);
             divisorsList.add(sum);
-
+            if (divisors > 500){
+                break;
+            }
         }
 
 
+        System.out.println(divisors);
         System.out.println(divisorsList);
 
-
-        generateTriangleNumbers(10);
         return 0.0;
     }
 
@@ -54,5 +55,18 @@ public class Problem12 {
         int triangleNumber;
         triangleNumber = (limit * (limit+1)) /2;
         return triangleNumber;
+    }
+
+    private static Integer factor(int number){
+        if (number == 1) return 1;
+
+        int counter = 0;
+        for (int i=number;i>1;i--){
+            if (number % i == 0){
+                counter++;
+            }
+        }
+
+        return counter;
     }
 }
