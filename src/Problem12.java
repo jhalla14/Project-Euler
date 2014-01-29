@@ -31,6 +31,7 @@ public class Problem12 {
         for (int counter=1; counter<=Integer.MAX_VALUE;counter++){
             sum += counter;
             divisors++;
+            System.out.println(divisors + " " + sum);
             if (divisors == 500){
                 System.out.println(sum);
                 break;
