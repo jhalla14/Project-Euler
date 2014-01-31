@@ -33,7 +33,7 @@ public class Problem12 {
         int sum = 0;
         List<Integer> divisorsList = new ArrayList<Integer>();
 
-        for (int counter=1; counter<=Integer.MAX_VALUE;counter++){
+        for (int counter=1; counter<=500;counter++){
             sum += counter;
 
             divisors = factor(sum);
